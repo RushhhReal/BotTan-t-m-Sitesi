@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EpicKey | Discord Bot</title>
+  <meta name="description" content="EpicKey Discord bot: moderasyon, otomasyon, kayıt, ticket ve daha fazlası." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="#top" id="top">
+        <span class="brand-dot"></span>
+        <span>EpicKey</span>
+      </a>
+
+      <nav class="menu">
+        <a href="#ozellikler">Özellikler</a>
+        <a href="#komutlar">Komutlar</a>
+        <a href="#sik-sorulanlar">SSS</a>
+        <a href="#iletisim">İletişim</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="#davet">Davet</a>
+        <a class="btn btn-primary" href="#premium">Premium</a>
+      </div>
+
+      <button class="hamburger" aria-label="Menüyü aç/kapat" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <div class="container mobile-menu" id="mobileMenu">
+      <a href="#ozellikler" onclick="toggleMenu()">Özellikler</a>
+      <a href="#komutlar" onclick="toggleMenu()">Komutlar</a>
+      <a href="#sik-sorulanlar" onclick="toggleMenu()">SSS</a>
+      <a href="#iletisim" onclick="toggleMenu()">İletişim</a>
+      <div class="mobile-actions">
+        <a class="btn btn-ghost" href="#davet" onclick="toggleMenu()">Davet</a>
+        <a class="btn btn-primary" href="#premium" onclick="toggleMenu()">Premium</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="pill">
+            <span class="pill-dot"></span>
+            Yeni: Ticket + Otomasyon sistemi
+          </div>
+
+          <h1>Sunucunu büyüten, <span class="accent">akıllı</span> Discord botu: <span class="accent">EpicKey</span></h1>
+          <p class="lead">
+            Moderasyon, kayıt, ticket, duyuru, otomasyon ve log sistemi tek panelde.
+            Kurulumu kolay, görünümü modern, performansı güçlü.
+          </p>
+
+          <div class="cta-row" id="davet">
+            <!-- Buradaki linkleri kendi bot invite / support server linkinle değiştir -->
+            <a class="btn btn-primary btn-lg" href="https://discord.com/oauth2/authorize?client_id=YOUR_CLIENT_ID&permissions=8&scope=bot%20applications.commands" target="_blank" rel="noreferrer">
+              Botu Davet Et
+            </a>
+            <a class="btn btn-ghost btn-lg" href="https://discord.gg/YOUR_INVITE" target="_blank" rel="noreferrer">
+              Destek Sunucusu
+            </a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="stat-num">⚡</div>
+              <div class="stat-text">
+                <b>Hızlı</b><br/>Düşük gecikme
+              </div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">🛡️</div>
+              <div class="stat-text">
+                <b>Güvenli</b><br/>Rol & izin kontrolü
+              </div>
+            </div>
+            <div class="stat">
+              <div class="stat-num">🧩</div>
+              <div class="stat-text">
+                <b>Modüler</b><br/>İstediğini aç/kapat
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="card preview">
+            <div class="preview-top">
+              <div class="dots">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="preview-title">EpicKey /dashboard</span>
+              <span class="badge">LIVE</span>
+            </div>
+
+            <div class="preview-body">
+              <div class="row">
+                <div class="mini-card">
+                  <div class="mini-icon">🎫</div>
+                  <div>
+                    <b>Ticket</b>
+                    <p>Otomatik kategori & atama</p>
+                  </div>
+                </div>
+                <div class="mini-card">
+                  <div class="mini-icon">✅</div>
+                  <div>
+                    <b>Kayıt</b>
+                    <p>Form / buton / rol</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="mini-card">
+                  <div class="mini-icon">🔨</div>
+                  <div>
+                    <b>Moderasyon</b>
+                    <p>Ban, mute, filtre</p>
+                  </div>
+                </div>
+                <div class="mini-card">
+                  <div class="mini-icon">📣</div>
+                  <div>
+                    <b>Duyuru</b>
+                    <p>Planlı mesajlar</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="console">
+                <div class="console-line"><span class="k">/</span>setup <span class="v">ticket</span> <span class="ok">✓</span></div>
+                <div class="console-line"><span class="k">/</span>setup <span class="v">welcome</span> <span class="ok">✓</span></div>
+                <div class="console-line"><span class="k">/</span>antilink <span class="v">on</span> <span class="ok">✓</span></div>
+                <div class="console-line"><span class="k">/</span>logs <span class="v">#mod-log</span> <span class="ok">✓</span></div>
+              </div>
+
+              <div class="note">
+                <b>İpucu:</b> Tüm ayarları slash komutlarla 2 dakikada kur.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="section" id="ozellikler">
+      <div class="container">
+        <div class="section-head">
+          <h2>Özellikler</h2>
+          <p>Sunucunun ihtiyacı olan temel sistemler + ekstra güçlendirmeler.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="feature">
+            <div class="f-icon">🛡️</div>
+            <h3>Gelişmiş Moderasyon</h3>
+            <p>Anti-link, küfür filtresi, raid koruması, uyarı sistemi ve detaylı loglar.</p>
+          </div>
+          <div class="feature">
+            <div class="f-icon">🎫</div>
+            <h3>Ticket Sistemi</h3>
+            <p>Butonlu panel, kategoriye göre yönlendirme, otomatik yetkili atama.</p>
+          </div>
+          <div class="feature">
+            <div class="f-icon">✅</div>
+            <h3>Kayıt & Rol</h3>
+            <p>Buton/komut ile kayıt, otomatik rol verme, hoş geldin mesajları.</p>
+          </div>
+
+          <div class="feature">
+            <div class="f-icon">📣</div>
+            <h3>Duyuru & Otomasyon</h3>
+            <p>Planlı mesajlar, otomatik cevaplar, belirli olaylarda tetikleyici aksiyonlar.</p>
+          </div>
+          <div class="feature">
+            <div class="f-icon">📊</div>
+            <h3>İstatistik & Panel</h3>
+            <p>Sunucu verileri, komut kullanım raporu, en aktif kanallar/roller.</p>
+          </div>
+          <div class="feature">
+            <div class="f-icon">⚙️</div>
+            <h3>Kolay Kurulum</h3>
+            <p>Tek komutla kurulum: <code>/setup</code> ile temel ayarların tamamı.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMMANDS -->
+    <section class="section alt" id="komutlar">
+      <div class="container">
+        <div class="section-head">
+          <h2>Popüler Komutlar</h2>
+          <p>Komut isimlerini dilediğin gibi düzenleyebilirsin.</p>
+        </div>
+
+        <div class="commands">
+          <div class="cmd">
+            <div class="cmd-left">
+              <b>/setup</b>
+              <span>Temel kurulumu başlatır</span>
+            </div>
+            <span class="cmd-tag">Yönetim</span>
+          </div>
+          <div class="cmd">
+            <div class="cmd-left">
+              <b>/ticket panel</b>
+              <span>Ticket paneli oluşturur</span>
+            </div>
+            <span class="cmd-tag">Ticket</span>
+          </div>
+          <div class="cmd">
+            <div class="cmd-left">
+              <b>/warn</b>
+              <span>Kullanıcıyı uyarır</span>
+            </div>
+            <span class="cmd-tag">Moderasyon</span>
+          </div>
+          <div class="cmd">
+            <div class="cmd-left">
+              <b>/mute</b>
+              <span>Süreli susturma uygular</span>
+            </div>
+            <span class="cmd-tag">Moderasyon</span>
+          </div>
+          <div class="cmd">
+            <div class="cmd-left">
+              <b>/antilink on|off</b>
+              <span>Link filtresini aç/kapat</span>
+            </div>
+            <span class="cmd-tag">Güvenlik</span>
+          </div>
+          <div class="cmd">
+            <div class="cmd-left">
+              <b>/announce</b>
+              <span>Duyuru mesajı gönderir</span>
+            </div>
+            <span class="cmd-tag">Duyuru</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section" id="premium">
+      <div class="container">
+        <div class="section-head">
+          <h2>Paketler</h2>
+          <p>Ücretsiz başla, büyüdükçe premium’a geç.</p>
+        </div>
+
+        <div class="pricing">
+          <div class="price-card">
+            <h3>Free</h3>
+            <div class="price">₺0 <span>/ sınırsız</span></div>
+            <ul>
+              <li>Temel moderasyon</li>
+              <li>Ticket (standart)</li>
+              <li>Kayıt & rol</li>
+              <li>Standart loglar</li>
+            </ul>
+            <a class="btn btn-ghost wfull" href="#davet">Başla</a>
+          </div>
+
+          <div class="price-card featured">
+            <div class="ribbon">Önerilen</div>
+            <h3>Pro</h3>
+            <div class="price">₺149 <span>/ ay</span></div>
+            <ul>
+              <li>Gelişmiş anti-raid</li>
+              <li>Ticket otomasyonları</li>
+              <li>Özel komutlar & panel</li>
+              <li>Gelişmiş istatistik</li>
+              <li>Öncelikli destek</li>
+            </ul>
+            <a class="btn btn-primary wfull" href="#iletisim">Premium Al</a>
+          </div>
+
+          <div class="price-card">
+            <h3>Enterprise</h3>
+            <div class="price">Teklif <span>/ özel</span></div>
+            <ul>
+              <li>Özel modül geliştirme</li>
+              <li>Çoklu sunucu yönetimi</li>
+              <li>Özel SLA</li>
+              <li>Kurulum & danışmanlık</li>
+            </ul>
+            <a class="btn btn-ghost wfull" href="#iletisim">İletişim</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section alt" id="sik-sorulanlar">
+      <div class="container">
+        <div class="section-head">
+          <h2>Sık Sorulanlar</h2>
+          <p>Kısa ve net cevaplar.</p>
+        </div>
+
+        <div class="faq">
+          <details open>
+            <summary>EpicKey’i eklemek güvenli mi?</summary>
+            <p>Evet. Bot, yalnızca gerekli izinler ile çalışacak şekilde tasarlanır. İzinleri davet linkinde kendin de düzenleyebilirsin.</p>
+          </details>
+          <details>
+            <summary>Kurulum ne kadar sürer?</summary>
+            <p>Ortalama 2 dakika. <code>/setup</code> ile temel ayarlar otomatik yapılır.</p>
+          </details>
+          <details>
+            <summary>Premium ile ne fark geliyor?</summary>
+            <p>Gelişmiş anti-raid, ticket otomasyonları, istatistikler ve öncelikli destek gibi ek özellikler açılır.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="iletisim">
+      <div class="container">
+        <div class="section-head">
+          <h2>İletişim</h2>
+          <p>Teklif, destek veya iş birliği için mesaj bırak.</p>
+        </div>
+
+        
+        <form class="contact" onsubmit="return fakeSend(event)">
+          <div class="two">
+            <label>
+              Ad Soyad
+              <input type="text" name="name" placeholder="Adın" required />
+            </label>
+            <label>
+              E-posta
+              <input type="email" name="email" placeholder="ornek@mail.com" required />
+            </label>
+          </div>
+          <label>
+            Konu
+            <input type="text" name="subject" placeholder="Premium / Destek / İş birliği" required />
+          </label>
+          <label>
+            Mesaj
+            <textarea name="message" placeholder="Mesajını yaz..." rows="5" required></textarea>
+          </label>
+
+          <div class="form-row">
+            <button class="btn btn-primary btn-lg" type="submit">Gönder</button>
+            <span class="form-hint" id="formHint">Gönderim sonrası ekranda bilgi verecek.</span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final">
+      <div class="container final-box">
+        <div>
+          <h2>EpicKey ile sunucunu bir üst seviyeye taşı.</h2>
+          <p>Davet et, kurulumu yap, gerisini EpicKey halletsin.</p>
+        </div>
+        <div class="final-actions">
+          <a class="btn btn-primary btn-lg" href="#davet">Hemen Davet Et</a>
+          <a class="btn btn-ghost btn-lg" href="#komutlar">Komutlara Bak</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container foot">
+      <div class="foot-left">
+        <div class="brand small">
+          <span class="brand-dot"></span>
+          <span>EpicKey</span>
+        </div>
+        <p>© <span id="year"></span> EpicKey. Tüm hakları saklıdır.</p>
+      </div>
+
+      <div class="foot-right">
+        <a href="#sik-sorulanlar">SSS</a>
+        <a href="#iletisim">İletişim</a>
+        <a href="#top">Yukarı</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function toggleMenu() {
+      const mm = document.getElementById("mobileMenu");
+      mm.classList.toggle("open");
+    }
+
+    function fakeSend(e) {
+      e.preventDefault();
+      const hint = document.getElementById("formHint");
+      hint.textContent = "✅ Mesaj alındı! En kısa sürede dönüş yapılacak.";
+      hint.classList.add("ok");
+      e.target.reset();
+      return false;
+    }
+  </script>
+</body>
+</html>
